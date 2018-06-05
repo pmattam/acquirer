@@ -15,3 +15,10 @@ body {
     height: 40px;
     width: 40px;
 }
+
+
+/* Target Navbar */
+
+.target-navbar {
+    display: flex;
+}

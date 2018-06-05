@@ -65,10 +65,14 @@ let HomePageWrapper = ({ target_companies }) => {
       <div>
         {
           target_companies.map((target, i) => 
-          <div className='target' key={i}>
-            <div>{target.company_name}</div>
-            <div>{target.company_profile.sector}</div>
-            <div>{target.company_profile.address.split(',').map((addr, i) => <div key={i}>{addr}</div>)}</div>
+          <div key={i}>
+            <Link to={`/target/${target.id}`} key={i}>
+              <div className='target' key={i}>
+                <div>{target.company_name}</div>
+                <div>{target.company_profile.sector}</div>
+                <div>{target.company_profile.address.split(',').map((addr, i) => <div key={i}>{addr}</div>)}</div>
+              </div>
+            </Link>
           </div>)
         }
       </div>

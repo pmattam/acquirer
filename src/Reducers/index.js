@@ -3,6 +3,7 @@ import { reducers } from './handlers';
 const initialState = {
   target_companies: [
     {
+      id: 'sti',
       company_name: 'SunTrust Banks, Inc.',
       logo: '/images/company-logo/sti.png',
       status: 'Approved',
@@ -36,6 +37,7 @@ const initialState = {
       ]
     },
     {
+      id: 'tmus',
       company_name: 'T-Mobile US, Inc.',
       logo: '/images/company-logo/tmus.png',
       status: 'Pending Approval',
@@ -69,6 +71,7 @@ const initialState = {
       ]
     },
     {
+      id: 'csco',
       company_name: 'Cisco Systems, Inc.',
       logo: '/images/company-logo/csco.png',
       status: 'Declined',
