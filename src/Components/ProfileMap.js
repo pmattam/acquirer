@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import MapComponent from './Map';
+import { getLatAndLng } from '../Lib/index';
 
 class ProfileMap extends PureComponent {
   state = {
@@ -13,22 +14,9 @@ class ProfileMap extends PureComponent {
   }
 
   getCoordinates = () => {
-    let address = this.props.address;
-    console.log("address", address);
-    let geoURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBey-Jk8GDEo92I0MCHSdmMUQ0Jja0foYo`;
-      fetch(geoURL, {method: 'GET'})
-        .then(res  => { 
-          try {
-            if(res.ok) return res.json();
-            if(res.status >= 400 && res.status < 500 ) return Promise.reject({ body: res, status: res.status, type: 'Application Error'});
-            if(res.status >= 500) return Promise.reject({ body: res, status: res.status, type: 'Server Error' });
-          } catch (e) {
-            console.log(e);
-            Promise.reject({ body: res, status: res.status, type:'Invalid JSON'})
-          }
-        })
-        .then(data => data.results[0])
-        .then(data => this.setState({ lat: data.geometry.location.lat, lng: data.geometry.location.lng}))
+    getLatAndLng(this.props.address)
+      .then(data => data.results[0])
+      .then(data => this.setState({ lat: data.geometry.location.lat, lng: data.geometry.location.lng}))
   };
 
   // handleMarkerClick = () => {
