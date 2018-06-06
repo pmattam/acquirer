@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import TargetProfile from './TargetProfile';
 import TargetContacts from './TargetContacts';
 import TargetFinancialPerformance from './TargetFinancialPerformance';
@@ -15,6 +14,8 @@ class TargetInformationWrapper extends Component {
       isFinance: false
     };
   }
+
+  filteredTarget = this.props.target_companies.filter(target => target.id === this.props.match.params.id)[0];
 
   setProfile = () => {
     this.setState({
@@ -38,23 +39,40 @@ class TargetInformationWrapper extends Component {
     })
   }
   render() {
-    console.log(this.props);
+    let target = this.filteredTarget;
+    // console.log(target);
     return (
       <div>
-      <div className='target-navbar'>
-        <div onClick = {this.setProfile}>Company Profile</div>
-        <div onClick = {this.setContacts}>Contacts</div>
-        <div onClick = {this.setFinance}>Financial Performance</div>
-      </div>
-      
-      {this.state.isProfile && <TargetProfile />}
-      {this.state.isKeyContacts && <TargetContacts />}
-      {this.state.isFinance && <TargetFinancialPerformance />}
+        <div className='target-info'>
+          <div>
+            <img src={target.logo} alt={target.logo}/>
+          </div>
+          <div>
+            {target.company_name}
+          </div>
+          <div>
+            {target.status}
+          </div>
+          <div>
+            <button>Edit</button>
+          </div>
+          <div>
+            <button>Delete</button>
+          </div>
+        </div>
+        <div className='target-navbar'>
+          <div onClick = {this.setProfile}>Profile</div>
+          <div onClick = {this.setContacts}>Contacts</div>
+          <div onClick = {this.setFinance}>Financials</div>
+        </div>
+        {this.state.isProfile && <TargetProfile target={target}/>}
+        {this.state.isKeyContacts && <TargetContacts target={target}/>}
+        {this.state.isFinance && <TargetFinancialPerformance target={target}/>}
       </div>
     )
   }
 };
   
-let mapStateToProps = (state, props) => ({ props });
+let mapStateToProps = (state, props) => ({ target_companies: state.target_companies, props });
 let TargetInformation = connect(mapStateToProps)(TargetInformationWrapper);
 export default TargetInformation;

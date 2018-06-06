@@ -17,6 +17,18 @@ body {
 }
 
 
+/* Target Info */
+
+.target-info {
+    display: flex;
+}
+
+.target-info img {
+    height: 40px;
+    width: 40px;
+}
+
+
 /* Target Navbar */
 
 .target-navbar {
