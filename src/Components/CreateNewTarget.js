@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import add_button from '../Images/icons/add_button.png';
+import add_button from '../Icons/add_button.png';
 import '../index.css';
 import { createNewTarget } from '../Actions/index';
 
@@ -24,6 +24,7 @@ class CreateNewTargetWrapper extends Component {
     event.preventDefault();
     this.target_company.key_contacts = this.state.contacts;
     console.log('targetcompany', this.target_company);
+    this.target_company.id = this.target_company.company_name;
     this.props.createNewTarget(this.target_company);
     this.props.history.push('/');
   };

@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import { PieChart, Pie, Cell, Tooltip, Label, LabelList } from 'recharts';
 import '../index.css';
 import { statusChartColors, sectorChartColors } from '../Constants/index';
-import add_button from '../Images/icons/add_button.png';
+import add_button from '../Icons/add_button.png';
 
 let HomePageWrapper = ({ target_companies }) => {
-  // console.log('tc', target_companies);
 
   let researching = target_companies.filter(target => target.status === 'Researching');
   let pending = target_companies.filter(target => target.status === 'Pending Approval');
@@ -27,9 +26,6 @@ let HomePageWrapper = ({ target_companies }) => {
   });
 
   let sectorChartData = Object.keys(sector).map(eachSector => ({ name: eachSector, value: sector[eachSector] }));
-
-  // console.log('sec', sector);
-  // console.log('scd', sectorChartData);
 
   return (
     <div>
