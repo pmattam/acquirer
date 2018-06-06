@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfileMap from './ProfileMap';
 
 let TargetProfile = ({ target }) => 
   <div>
@@ -19,6 +20,10 @@ let TargetProfile = ({ target }) =>
     </div>
     <div>
       {target.company_profile.desc}
+    </div>
+    <div>
+      <ProfileMap
+      address={target.company_profile.address}/>
     </div>
   </div>
 

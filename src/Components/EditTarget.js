@@ -4,10 +4,7 @@ import { updateTarget } from '../Actions/index';
 
 let EditTargetWrapper = ({ target_companies, props, updateTarget }) => {
 
-  // console.log('id from props', props.match.params.id);
-  // console.log('tc', target_companies);
   let filteredTarget = target_companies.filter(target => target.id === props.match.params.id)[0];
-  // console.log('ft', filteredTarget);
 
   let handleSubmit = (event) => {
     event.preventDefault();
@@ -81,7 +78,7 @@ let EditTargetWrapper = ({ target_companies, props, updateTarget }) => {
               </div>)
           }
           </div>
-        <button onClick={() => props.history.push('/')}>Cancel</button>
+        <button onClick={() => props.history.push(`/target/${filteredTarget.id}`)}>Cancel</button>
         <input type='submit' value='Save' />
       </form>
     </div>
