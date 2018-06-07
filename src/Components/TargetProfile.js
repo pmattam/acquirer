@@ -9,8 +9,10 @@ let TargetProfile = ({ target }) =>
         {target.company_profile.address}
       </div>
       <div>
-        WEBSITE &nbsp;||&nbsp;
-        {target.company_profile.website}
+        <a target='_blank' href={target.company_profile.website}>
+          WEBSITE &nbsp;||&nbsp;
+          {target.company_profile.website}
+        </a>
       </div>
       <div>
         PHONE &nbsp;||&nbsp;

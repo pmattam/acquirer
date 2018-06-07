@@ -2,7 +2,8 @@ import React from 'react';
 
 let TargetContacts = ({ target }) => 
   <div className='tc-main'>
-    {target.key_contacts.map((contact, index) => 
+    {target.key_contacts.map((contact, index) =>
+    <div className='tc-sub'>
       <div className='tc-submain animated fadeIn' key={index}>
         <div>
           NAME &nbsp;|&nbsp;
@@ -20,7 +21,11 @@ let TargetContacts = ({ target }) =>
           EMAIL &nbsp;|&nbsp;
           {contact.email}
         </div>
-      </div>)
+      </div>
+      <div className='tc-img-div'>
+        <img className='tc-img' src={`/images/contact/${contact.name}.png`} alt={`/images/contact/${contact.name}.png`}/>
+      </div>
+    </div>)
     }
   </div>
 

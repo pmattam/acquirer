@@ -7,6 +7,8 @@ body {
 
 a {
     text-decoration: none;
+    color: teal;
+    font-family: Share;
 }
 
 
@@ -96,7 +98,7 @@ a {
 .targets {
     display: flex;
     background: #E2E2E2;
-    height: 50vh;
+    height: 60vh;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -378,6 +380,12 @@ a {
     align-items: center;
 }
 
+.tc-sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .tc-submain {
     display: flex;
     flex-direction: column;
@@ -391,6 +399,17 @@ a {
     width: 400px;
     background: #E2E2E2;
     border-radius: 5px;
+}
+
+.tc-img-div {
+    display: flex;
+    padding-left: 30px;
+}
+
+.tc-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
 }
 
 

@@ -26,6 +26,8 @@ class CreateNewTargetWrapper extends Component {
     this.target_company.key_contacts = this.state.contacts;
     console.log('targetcompany', this.target_company);
     this.target_company.id = this.target_company.company_name;
+    this.target_company.logo = `/images/company-logo/${this.target_company.company_name}.png`
+    this.target_company.financial_performance.financial_chart = `/images/financial-chart/${this.target_company.company_name}.png`
     this.props.createNewTarget(this.target_company);
     this.props.history.push('/home');
   };
@@ -34,10 +36,6 @@ class CreateNewTargetWrapper extends Component {
     console.log('coming here');
     let contact = {};
     this.setState({ contacts: [...this.state.contacts, contact] });
-  };
-
-  handleUpload = (event) => {
-    console.log(event.target.value);
   };
 
   render() {
