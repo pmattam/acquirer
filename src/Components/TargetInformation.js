@@ -43,7 +43,7 @@ class TargetInformationWrapper extends Component {
   handleDelete = (event) => {
     if(window.confirm('Are you sure you wish to delete this company')){
       this.props.deleteTarget(this.filteredTarget);
-      this.props.history.push('/');
+      this.props.history.push('/home');
     }
   };
 

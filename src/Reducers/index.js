@@ -103,6 +103,40 @@ const initialState = {
           phone_number: '408-526-4002'
         }
       ]
+    },
+    {
+      id: 'amd',
+      company_name: 'Advanced Micro Devices, Inc.',
+      logo: '/images/company-logo/amd.png',
+      status: 'Researching',
+      company_profile: {
+        address: '2485 Augustine Drive, Santa Clara, CA 95054',
+        desc: "Advanced Micro Devices, Inc. operates as a semiconductor company worldwide. It operates in two segments, Computing and Graphics; and Enterprise, Embedded and Semi-Custom. The company's products include x86 microprocessors as an accelerated processing unit (APU), chipsets, discrete and integrated graphics processing units (GPUs), and professional GPUs; and server and embedded processors, and semi-custom System-on-Chip (SoC) products and technology for game consoles. It provides x86 microprocessors for desktop PCs under the AMD Ryzen, AMD Ryzen Pro, Threadripper, AMD A-Series, AMD E-Series, AMD FX CPU, AMD Athlon CPU and APU, AMD Sempron APU and CPU, and AMD Pro A-Series APU brands; microprocessors for notebook and 2-in-1s under the AMD Ryzen processors with Radeon Vega GPUs, AMD A-Series, AMD E-Series, AMD C-Series, AMD Z-Series, AMD FX APU, AMD Phenom, AMD Athlon CPU and APU, AMD Turion, and AMD Sempron APU and CPU brands; and microprocessors for servers under the AMD EPYC and AMD Opteron brands. It also offers chipsets under the AMD brand; discrete GPUs for desktop and notebook PCs under the AMD Radeon and AMD Embedded Radeon brand; professional graphic products under the AMD Radeon Pro and AMD FirePro brands; and customer-specific solutions based on AMD's CPU, GPU, and multi-media technologies. In addition, it provides embedded processor solutions for interactive digital signage, casino gaming, and medical imaging under the AMD Opteron, AMD Athlon, AMD Sempron, AMD Geode, AMD R-Series, G-Series, and AMD Embedded Radeon brands; consumer graphics under the AMD Radeon brand; and semi-custom SoC products. It serves original equipment and design manufacturers, datacenters, system integrators, distributors, and add-in-board manufacturers through its direct sales force, independent distributors, and sales representatives. Advanced Micro Devices, Inc. was founded in 1969 and is headquartered in Santa Clara, California.",
+        employees: '8,900',
+        phone_number: '408-749-4000',
+        sector: 'Technology',
+        website: 'http://www.amd.com'
+      },
+      financial_performance: {
+        revenue: '5,329M',
+        net_income: '43M',
+        market_cap: '15.19B',
+        financial_chart: '/images/financial-chart/amd.png'
+      },
+      key_contacts: [
+        {
+          name: 'Lisa T. Su',
+          title: 'Pres, CEO & Non-Independent Director',
+          email: 'lisa.su@amd.com',
+          phone_number: '408-749-4001'
+        },
+        {
+          name: 'Devinder Kumar',
+          title: 'Sr. VP, CFO & Treasurer',
+          email: 'devinder.kumar@amd.com',
+          phone_number: '408-749-4002'
+        }
+      ]
     }
   ]
 };

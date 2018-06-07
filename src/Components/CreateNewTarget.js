@@ -26,13 +26,17 @@ class CreateNewTargetWrapper extends Component {
     console.log('targetcompany', this.target_company);
     this.target_company.id = this.target_company.company_name;
     this.props.createNewTarget(this.target_company);
-    this.props.history.push('/');
+    this.props.history.push('/home');
   };
 
   handleClick = () => {
     console.log('coming here');
     let contact = {};
     this.setState({ contacts: [...this.state.contacts, contact] });
+  };
+
+  handleUpload = (event) => {
+    console.log(event.target.value);
   };
 
   render() {
@@ -77,7 +81,7 @@ class CreateNewTargetWrapper extends Component {
               </div>)
             }
               </div>
-          <button onClick={() => this.props.history.push('/')}>Cancel</button>
+          <button onClick={() => this.props.history.push('/home')}>Cancel</button>
           <input type='submit' value='Submit' />
         </form>
       </div>
