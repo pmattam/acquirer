@@ -1,18 +1,23 @@
 import React from 'react';
 
 let TargetFinancialPerformance = ({ target }) => 
-  <div>
-    <div>
-      {target.financial_performance.revenue}
+  <div className='tfp-main'>
+    <div className='tfp-img-div'>
+      <img className='tfp-img' src={target.financial_performance.financial_chart} alt={target.financial_performance.financial_chart}/>
     </div>
-    <div>
-      {target.financial_performance.net_income}
-    </div>
-    <div>
-      {target.financial_performance.market_cap}
-    </div>
-    <div>
-      <img src={target.financial_performance.financial_chart} alt={target.financial_performance.financial_chart}/>
+    <div className='tfp-data'>
+      <div>
+        REVENUE &nbsp;|&nbsp;
+        {target.financial_performance.revenue}
+      </div>
+      <div>
+        NET INCOME &nbsp;|&nbsp;
+        {target.financial_performance.net_income}
+      </div>
+      <div>
+        MARKET CAP &nbsp;|&nbsp;
+        {target.financial_performance.market_cap}
+      </div>
     </div>
   </div>
 
