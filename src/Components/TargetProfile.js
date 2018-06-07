@@ -3,25 +3,35 @@ import ProfileMap from './ProfileMap';
 
 let TargetProfile = ({ target }) => 
   <div>
-    <div>
-      {target.company_profile.address}
+    <div className='profile-main'>
+      <div>
+        ADDRESS &nbsp;||&nbsp;
+        {target.company_profile.address}
+      </div>
+      <div>
+        <a target='_blank' href={target.company_profile.website}>
+          WEBSITE &nbsp;||&nbsp;
+          {target.company_profile.website}
+        </a>
+      </div>
+      <div>
+        PHONE &nbsp;||&nbsp;
+        {target.company_profile.phone_number}
+      </div>
+      <div>
+        EMPLOYEES &nbsp;||&nbsp;
+        {target.company_profile.employees}
+      </div>
+      <div>
+        SECTOR &nbsp;||&nbsp;
+        {target.company_profile.sector}
+      </div>
+      <div>
+        DESCRIPTION &nbsp;||&nbsp;
+        {target.company_profile.desc}
+      </div>
     </div>
-    <div>
-      {target.company_profile.website}
-    </div>
-    <div>
-      {target.company_profile.phone_number}
-    </div>
-    <div>
-      {target.company_profile.employees}
-    </div>
-    <div>
-      {target.company_profile.sector}
-    </div>
-    <div>
-      {target.company_profile.desc}
-    </div>
-    <div>
+    <div className='profile-map'>
       <ProfileMap
       address={target.company_profile.address}/>
     </div>

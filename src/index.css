@@ -1,15 +1,192 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: arial, sans-serif;
+    font-family: Helvetica, sans-serif;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: teal;
+    font-family: Share;
 }
 
 
-/* .target {
+/* Launch Page */
+
+.launchpage {
     display: flex;
-    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100vh;
-} */
+}
+
+.launchpage-logo {
+    height: 150px;
+    margin-bottom: 50px;
+}
+
+.launching-text {
+    display: flex;
+    height: 50px;
+    width: 200px;
+    border: solid 1px teal;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 20px;
+    color: teal;
+    font-family: Share;
+}
+
+
+/* Header */
+
+.header-main {
+    display: flex;
+    height: 80px;
+    width: 100vw;
+    border-bottom: solid lightgray 0.5px;
+    box-shadow: 8px 4px 4px lightgray;
+}
+
+.header-logo-div {
+    display: flex;
+    align-self: center;
+}
+
+.header-logo {
+    height: 70px;
+    width: 70px;
+}
+
+.header-name-div {
+    display: flex;
+    align-self: center;
+    padding-left: 700px;
+}
+
+.header-name {
+    height: 50px;
+    width: 120px;
+}
+
+
+/* HomePage - Charts*/
+
+.charts {
+    display: flex;
+    justify-content: center;
+}
+
+.status-chart {
+    padding-top: 40px;
+    padding-left: 120px;
+}
+
+.sector-chart {
+    padding-top: 40px;
+    padding-right: 120px;
+}
+
+
+/* HomePage - Targets */
+
+.targets {
+    display: flex;
+    background: #E2E2E2;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.target-link {
+    text-decoration: none;
+}
+
+.target {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    line-height: 25px;
+    margin: 0 20px 0 20px;
+    background: #EBEBEB;
+    font-family: Share;
+    font-size: 19px;
+    height: 150px;
+    width: 270px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px teal;
+}
+
+.target:hover {
+    background: #BFBFBF;
+}
+
+.target-img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+.target-img {
+    height: 40px;
+    width: 40px;
+}
+
+.logo-target-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Researching-name,
+.Researching-sector,
+.Researching-addr {
+    color: #0088FE;
+}
+
+.Researching-addr {
+    text-align: center;
+}
+
+.Approval-name,
+.Approval-sector,
+.Approval-addr {
+    color: #FFBB28;
+}
+
+.Approval-addr {
+    text-align: center;
+}
+
+.Approved-name,
+.Approved-sector,
+.Approved-addr {
+    color: #00C49F;
+}
+
+.Approved-addr {
+    text-align: center;
+}
+
+.Declined-name,
+.Declined-sector,
+.Declined-addr {
+    color: #FF8042;
+}
+
+.Declined-addr {
+    text-align: center;
+}
 
 .new-contact-icon {
     height: 40px;
@@ -17,20 +194,245 @@ body {
 }
 
 
-/* Target Info */
+/* CreateNewTarget & EditTarget & kc-input is specific to EditTarget */
+
+.createnew-main,
+.edit-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Share;
+    font-size: 19px;
+    color: teal;
+    height: 100vh;
+    margin-top: 20px;
+    line-height: 30px;
+}
+
+.input {
+    height: 35px;
+    width: 350px;
+    border-radius: 5px;
+    border: solid 1px teal;
+    margin: 0 0 10px 10px;
+    font-family: Share;
+    font-size: 15px;
+}
+
+.kc-input {
+    height: 35px;
+    width: 200px;
+    border-radius: 5px;
+    border: solid 1px teal;
+    margin: 0 10px 10px 10px;
+    font-family: Share;
+    font-size: 15px;
+}
+
+.select-input {
+    height: 35px;
+    width: 150px;
+    border-radius: 5px;
+    border: solid 1px teal;
+    margin: 0 0 10px 10px;
+    font-family: Share;
+    font-size: 15px;
+    color: teal;
+}
+
+.bt-div {
+    display: flex;
+    margin-top: 10px;
+}
+
+.bt {
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    border: solid 1px teal;
+    margin: 0 0 10px 10px;
+    font-family: Share;
+    font-size: 20px;
+    color: teal;
+}
+
+
+/* TargetInformation */
 
 .target-info {
     display: flex;
+    height: 50px;
+    width: 100vw;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.ti-img-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px 0 15px;
+    font-family: Share;
+    color: teal;
 }
 
 .target-info img {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 55px;
+}
+
+.ti-cn {
+    font-size: 25px;
+    margin: 0 20px 0 0;
+}
+
+.Researching {
+    color: #0088FE;
+    font-size: 20px;
+}
+
+.Pending {
+    color: #FFBB28;
+    font-size: 20px;
+}
+
+.Approved {
+    color: #00C49F;
+    font-size: 20px;
+}
+
+.Declined {
+    color: #FF8042;
+    font-size: 20px;
+}
+
+.ti-bt-link {
+    text-decoration: none;
+}
+
+.ti-bt {
+    height: 30px;
+    width: 75px;
+    font-size: 15px;
+    font-family: Share;
+    border-radius: 5px;
+    border: solid 1px teal;
+    color: teal;
 }
 
 
-/* Target Navbar */
+/* Target Navbar in TargetInformation */
 
 .target-navbar {
     display: flex;
+    height: 50px;
+    width: 100vw;
+    justify-content: flex-start;
+}
+
+.tn-pr,
+.tn-ct,
+.tn-fi {
+    display: flex;
+    height: 50px;
+    width: 150px;
+    font-family: Share;
+    font-size: 20px;
+    color: teal;
+    justify-content: center;
+    align-items: center;
+}
+
+.tn-pr:hover,
+.tn-ct:hover,
+.tn-fi:hover {
+    background: #EBEBEB;
+}
+
+
+/* TargetProfile */
+
+.profile-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Share;
+    font-size: 15px;
+    color: teal;
+    margin: 10px 450px 20px 450px;
+    line-height: 30px;
+}
+
+.profile-map {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* KeyContacts */
+
+.tc-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tc-sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tc-submain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 40px 0;
+    font-family: Share;
+    font-size: 20px;
+    color: teal;
+    height: 250px;
+    width: 400px;
+    background: #E2E2E2;
+    border-radius: 5px;
+}
+
+.tc-img-div {
+    display: flex;
+    padding-left: 30px;
+}
+
+.tc-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+
+/* Financial Performance */
+
+.tfp-main {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.tfp-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    line-height: 30px;
+    font-family: Share;
+    font-size: 20px;
+    color: teal;
+}
+
+.tfp-img {
+    height: 400px;
+    width: 600px;
 }

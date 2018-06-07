@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 import TargetProfile from './TargetProfile';
 import TargetContacts from './TargetContacts';
 import TargetFinancialPerformance from './TargetFinancialPerformance';
@@ -51,29 +52,30 @@ class TargetInformationWrapper extends Component {
     let target = this.filteredTarget;
     return (
       <div>
+        <Header/>
         <div className='target-info'>
-          <div>
+          <div className='ti-img-div'>
             <img src={target.logo} alt={target.logo}/>
           </div>
-          <div>
+          <div className='ti-img-div ti-cn'>
             {target.company_name}
           </div>
-          <div>
+          <div className={`${target.status} ti-img-div`}>
             {target.status}
           </div>
-          <div>
-            <Link to={`/edittarget/${target.id}`}>
-              <button>Edit</button>
+          <div className='ti-img-div'>
+            <Link className='ti-bt-link' to={`/edittarget/${target.id}`}>
+              <button className='ti-bt'>Edit</button>
             </Link>
           </div>
-          <div>
-            <button onClick={this.handleDelete}>Delete</button>
+          <div className='ti-img-div'>
+            <button className='ti-bt' onClick={this.handleDelete}>Delete</button>
           </div>
         </div>
         <div className='target-navbar'>
-          <div onClick = {this.setProfile}>Profile</div>
-          <div onClick = {this.setContacts}>Contacts</div>
-          <div onClick = {this.setFinance}>Financials</div>
+          <div className='tn-pr' onClick = {this.setProfile}>Profile</div>
+          <div className='tn-ct' onClick = {this.setContacts}>Contacts</div>
+          <div className='tn-fi' onClick = {this.setFinance}>Financials</div>
         </div>
         {this.state.isProfile && <TargetProfile target={target}/>}
         {this.state.isKeyContacts && <TargetContacts target={target}/>}

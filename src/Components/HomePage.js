@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { PieChart, Pie, Cell, Tooltip, Label, LabelList } from 'recharts';
 import '../index.css';
 import { statusChartColors, sectorChartColors } from '../Constants/index';
-import add_button from '../Icons/add_button.png';
+import add_button from '../Icons/add-button1.png';
+import Header from './Header';
 
 let HomePageWrapper = ({ target_companies }) => {
 
@@ -29,48 +30,53 @@ let HomePageWrapper = ({ target_companies }) => {
 
   return (
     <div>
-      <div>
-        <PieChart width={800} height={300}>
-          <Pie data={statusChartData} fill='#8884d8' dataKey='value' innerRadius={10}>
-            {
-          	  statusChartData.map((entry, index) => <Cell key={index} fill={statusChartColors[index % statusChartColors.length]}/>)
-            }
-            <LabelList dataKey='name' position='outside' fill='#FF8042' fontSize={20} fontWeight='bold'/>
-            {/* <Label value='Status' position='center' fill='#006064' fontWeight='bold'/> */}
-          </Pie>
-          <Tooltip/>
-        </PieChart> 
+      <Header/>
+      <div className='charts'>
+        <div className='status-chart'>
+          <PieChart width={800} height={300}>
+            <Pie data={statusChartData} fill='#8884d8' dataKey='value' innerRadius={10}>
+              {
+                statusChartData.map((entry, index) => <Cell key={index} fill={statusChartColors[index % statusChartColors.length]}/>)
+              }
+              <LabelList dataKey='name' position='outside' fill='teal' fontSize={20} fontWeight='bold' font-family='Arial'/>
+            </Pie>
+            <Tooltip/>
+          </PieChart> 
+        </div>
+        <div className='sector-chart'>
+          <PieChart width={700} height={300}>
+            <Pie data={sectorChartData} fill='#4DB6AC' dataKey='value' innerRadius={80} outerRadius={120}>
+              {
+                sectorChartData.map((entry, index) => <Cell key={index} fill={sectorChartColors[index % sectorChartColors.length]}/>)
+              }
+              <Label value='Sector' position='center' fill='teal' fontSize={20} fontWeight='bold' font-family='Arial'/>
+              <LabelList dataKey='name' position='outside' fill='teal' fontSize={20} fontWeight='bold' font-family='Arial'/>
+            </Pie>
+            <Tooltip/>
+          </PieChart> 
+        </div>
       </div>
-      <div>
-        <PieChart width={800} height={300}>
-          <Pie data={sectorChartData} fill='#4DB6AC' dataKey='value' innerRadius={80} outerRadius={120}>
-            {
-              sectorChartData.map((entry, index) => <Cell key={index} fill={sectorChartColors[index % sectorChartColors.length]}/>)
-            }
-            <Label value='Sector' position='center' fill='#FF8042' fontSize={20} fontWeight='bold'/>
-            <LabelList dataKey='name' position='outside' fill='#FF8042' fontSize={20} fontWeight='bold'/>
-          </Pie>
-          <Tooltip/>
-        </PieChart> 
-      </div>
-      <div>
-        <Link to='/newtarget'>
-          <img src={add_button} className='new-contact-icon' alt={add_button}/>
-        </Link>
-      </div>
-      <div>
+      <div className='targets'>
         {
           target_companies.map((target, i) => 
-          <div key={i}>
-            <Link to={`/target/${target.id}`} key={i}>
+          <div className={target.status}  key={i}>
+            <Link className='target-link' to={`/target/${target.id}`} key={i}>
               <div className='target' key={i}>
-                <div>{target.company_name}</div>
-                <div>{target.company_profile.sector}</div>
-                <div>{target.company_profile.address.split(',').map((addr, i) => <div key={i}>{addr}</div>)}</div>
+              <div className='logo-target-name'>
+                <div className='target-img-div'><img className='target-img' src={target.logo} alt={target.logo}/></div>
+                <div className={`${target.status}-name`}>{target.company_name}</div>
+              </div>
+                <div className={`${target.status}-sector`}>{target.company_profile.sector}</div>
+                <div className={`${target.status}-addr`}>{target.company_profile.address.split(',').map((addr, i) => <div key={i}>{addr}</div>)}</div>
               </div>
             </Link>
           </div>)
         }
+        <div>
+          <Link to='/newtarget'>
+            <img src={add_button} className='new-contact-icon' alt={add_button}/>
+          </Link>
+        </div>
       </div>
     </div>
   );
