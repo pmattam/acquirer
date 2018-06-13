@@ -21,6 +21,9 @@ let HomePageWrapper = ({ target_companies }) => {
     {name: 'Declined', value: declined.length}
   ];
 
+  /* A new statusChartData to filter any objects that has value 0 so the status is not shown in the PieChart*/
+  const filteredStatusChartData = statusChartData.filter(chartData => chartData.value >= 1);
+  
   let sector = {};
   target_companies.forEach(target => {
     sector[target.company_profile.sector] = (target.company_profile.sector in sector) ? sector[target.company_profile.sector] + 1 : 1;
@@ -34,9 +37,9 @@ let HomePageWrapper = ({ target_companies }) => {
       <div className='charts'>
         <div className='status-chart'>
           <PieChart width={800} height={300}>
-            <Pie data={statusChartData} fill='#8884d8' dataKey='value' innerRadius={10}>
+            <Pie data={filteredStatusChartData} fill='#8884d8' dataKey='value' innerRadius={10}>
               {
-                statusChartData.map((entry, index) => <Cell key={index} fill={statusChartColors[index % statusChartColors.length]}/>)
+                filteredStatusChartData.map((entry, index) => <Cell key={index} fill={statusChartColors[index % statusChartColors.length]}/>)
               }
               <LabelList dataKey='name' position='outside' fill='teal' fontSize={20} fontWeight='bold' font-family='Arial'/>
             </Pie>
@@ -67,7 +70,13 @@ let HomePageWrapper = ({ target_companies }) => {
                 <div className={`${target.status}-name`}>{target.company_name}</div>
               </div>
                 <div className={`${target.status}-sector`}>{target.company_profile.sector}</div>
-                <div className={`${target.status}-addr`}>{target.company_profile.address.split(',').map((addr, i) => <div key={i}>{addr}</div>)}</div>
+                <div className={`${target.status}-addr`}>
+                {
+                  /* When creating a new target check if the target address undefined */
+                  (target.company_profile.address !== undefined) ?
+                  target.company_profile.address.split(',').map((addr, i) => <div key={i}>{addr}</div>) :
+                  target.company_profile.address === ''
+                }</div>
               </div>
             </Link>
           </div>)
